@@ -1,0 +1,30 @@
+
+<div id="todo_container_asset_<%= todo_asset.todo_asset_id %>" class="todo_container_asset">
+  <div <%= gui.context_menu(:entity => todo_asset, 
+                            :id => 'todo_asset_' << todo_asset.todo_asset_id, 
+                            :params => { :article_id => container_params[:article_id], 
+                                         :content_id_parent => container_params[:content_id_parent], 
+                                         :content_id_child => container_params[:content_id_child], 
+                                         :text_asset_id => container_params[:text_asset_id]
+                            }, 
+                            :highlight_id => "container_#{container_params[:content_id_child]}"
+                           ) 
+    %> 
+    class="article_todo_container"
+  >
+    <h2>
+      <%= todo_asset.name %>
+    </h2>
+    <div id="todo_entry_form_<%= todo_asset.todo_asset_id %>">
+      <%= gui.button("todo_entry_form_#{todo_asset.todo_asset_id}" => "#{list_type.model_name}/add/article_id=#{article_id}&todo_asset_id=#{todo_asset.todo_asset_id}", 
+                     :icon => 'add', 
+                     :style => 'margin-bottom: 1px; ', 
+                     :class => 'submit' ) { tl(:add_entry) } 
+      %>
+    </div>
+  </div>
+  <div id="todo_asset_table_<%= todo_asset.todo_asset_id %>">
+    <%= table.string if table %>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+
+<div id="todo_entries_upcoming_list">
+
+  <% entries.each do |entry| %>
+
+    <div class="index_entry" <%= gui.context_menu(entry, :id => "todo_list_entry_#{entry.todo_entry_id}") %> >
+      <div style="float: left; margin: 0px; width: 47%; margin-right: 14px; ">
+        <b><%= gui.link_to(entry) { HTML.span { entry.title } } %></b>
+      </div>
+      <div style="float: left; width: 28%; ">
+        <nobr>
+          <%= tl(:by) %> <%= gui.link_to(entry.user_group) { entry.user_group.label } %>
+          <%= tl(:at) %> <%= gui.date(entry.created) %> 
+        </nobr>
+      </div>
+        <div style="float: left; ">
+        <% if entry.category then %>
+          <%= tl(:category) %>: <%= gui.link_to(entry.category) { entry.category.category_name } %> 
+        <% end %>
+        </div>
+      <div style="clear: both; "></div>
+    </div>
+
+  <% end %>
+
+</div>
+

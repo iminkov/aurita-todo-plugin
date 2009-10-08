@@ -1,0 +1,13 @@
+<div class="scrollbox" style="height: 200px; ">
+<ul class="no_bullets">
+<% entries.each do |entry| %>
+  <li style="padding: 4px; " >
+    <a onclick="<%= link_to(entry) %>" style="display: block; "
+      <%= gui.context_menu(:entity => entry, :id => "todo_entry_list_#{entry.todo_entry_id}") %> 
+    >
+      <%= entry.title %>
+    </a>
+  </li>
+<% end %>
+</ul>
+</div>

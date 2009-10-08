@@ -1,0 +1,17 @@
+
+
+<h1 <%= gui.context_menu(:entity => todo_asset) %> >
+  <%= todo_asset.name %>
+</h1>
+
+<div id="todo_entry_form_<%= todo_asset.todo_asset_id %>">
+  <%= gui.button("todo_entry_form_#{todo_asset.todo_asset_id}" => "#{list_type.model_name}/add/todo_asset_id=#{todo_asset.todo_asset_id}", 
+                 :icon => 'add', 
+                 :style => 'margin-bottom: 10px; ', 
+                 :class => 'submit' ) { tl(:add_entry) } 
+  %>
+  <div id="todo_asset_table_<%= todo_asset.todo_asset_id %>">
+    <%= table.string %>
+  </div>
+</div>
+

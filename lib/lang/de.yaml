@@ -1,0 +1,80 @@
+plugin_name : Aufgabenlisten
+
+public--todo_entry--title : Titel
+public--todo_entry--description : Kommentar
+public--todo_entry--done : Erledigt
+public--todo_entry--priority : Priorit&auml;t
+public--todo_entry--deadline : Deadline
+duration_hours : Aufwand in Stunden
+duration_days : Aufwand in Tagen
+duration : Aufwand
+deadline : Deadline
+weeks : Wochen
+days : Tage
+hours : Stunden
+week : Woche
+day : Tag
+hour : Stunde
+percent_done : Status
+
+public--todo_asset--name : Name
+public--todo_asset--comment : Kommentar
+public--todo_asset--is_private : Schreibgesch&uuml;tzt
+
+todo : Aufgabenliste
+todos : Aufgabenlisten
+todo_lists : Aufgabenlisten
+add_todo_list : Neue ToDo
+add_todo : Neue ToDo
+add_calculation : Neue Kalkulation
+add_time_calculation : Neue Stundenkalkulation
+show_todo_lists : Aufgaben
+show_todo_calculation_lists : Kalkulationen
+todo_list : Aufgaben
+edit_todo_list : Bearbeiten
+todo_entry : Aufgabe
+edit_todo_entry : Bearbeiten
+my_todos : Ihre Aufgaben
+no_todos_yet: Noch keine Aufgabenlisten
+todo_lists_of_other_users : Aufgaben anderer Benutzer
+new_todo : Neue Aufgabenliste
+done : Erledigt
+priority : Priorit&auml;t
+title : Titel
+created : Angelegt
+added_by_user : Benutzer
+
+upcoming_todos : Offene Aufgaben
+
+lowest_priority : niedrigste
+highest_priority : h&ouml;chste
+todo_list_container : ToDo-Liste
+
+public--todo_calculation_entry--cost : Kosten
+assigned_users : Verantwortliche
+est_duration : Aufwand
+cost : Kosten
+assignees : Verantwortliche
+
+total_costs_done : Geleistet
+total_costs : Gesamt
+todo_calculation : Kalkulation
+
+created_at : Angelegt am
+in_category : in Kategorie
+by : von
+at : am
+
+unit_cost : Satz
+total_cost : Gesamt
+show_todo_time_calculation_lists : Stundenkalkulationen
+total_hours : Stunden gesamt
+
+public--todo_time_calc_entry--unit_cost : Satz
+
+todo_asset_is_locked : Diese Liste kann nur von Benutzer {1} bearbeitet werden
+
+create_todo_lists : Aufgabenlisten anlegen
+view_todo_lists : Aufgabenlisten einsehen
+
+

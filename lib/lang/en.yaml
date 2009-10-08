@@ -1,0 +1,34 @@
+
+public--todo_entry--title : Title
+public--todo_entry--description : Description
+public--todo_entry--done : Done
+
+public--todo_entry--priority : Priority
+
+public--todo_asset--name : Name
+public--todo_asset--comment : Comment
+public--todo_asset--is_private : Readonly
+
+todo : Todo
+todos : Todos
+add_todo_list : New todo list
+show_todo_lists : Show todo
+todo_list : Tasks
+edit_todo_list : Edit
+todo_entry : Task
+add_entry : Add task
+edit_todo_entry : Edit
+my_todos : My todo lists
+no_todos_yet: No lists yet
+todo_lists_of_other_users : Todo lists of other users
+new_todo : New todo list
+done : Done
+priority : Priority
+title : Title
+created : Created
+added_by_user : User
+
+upcoming_todos : Upcoming todos
+
+lowest_priority : lowest
+highest_priority : highest
