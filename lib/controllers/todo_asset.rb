@@ -1,6 +1,13 @@
 
 require('aurita/plugin_controller')
 Aurita.import_plugin_model :wiki, :container
+Aurita.import_plugin_model :todo, :todo_asset
+Aurita.import_plugin_model :todo, :todo_entry
+Aurita.import_plugin_model :todo, :todo_basic_asset
+Aurita.import_plugin_model :todo, :todo_time_calculation_asset
+Aurita.import_plugin_model :todo, :todo_time_calculation_entry
+Aurita.import_plugin_model :todo, :todo_calculation_asset
+Aurita.import_plugin_model :todo, :todo_calculation_entry
 Aurita.import_plugin_module :todo, 'gui/todo_entry_table'
 
 module Aurita
@@ -150,12 +157,12 @@ module Todo
 
       Page.new(:header => todo_asset.name, :tools => edit_button) { 
         HTML.div(:id => page_content_id) { 
-          GUI::Button.new(:onclick => link_to(:controller => list_type.model_name, 
-                                              :action => :add, 
-                                              :element => page_content_id, 
-                                              :todo_asset_id => todo_asset.todo_asset_id), 
-                          :class   => :submit, 
-                          :style   => 'margin-bottom: 10px;') { tl(:add_entry) } + 
+          HTML.div.button_bar { 
+            GUI::Text_Button.new(:onclick => link_to(:controller => list_type.model_name, 
+                                                     :action => :add, 
+                                                     :element => page_content_id, 
+                                                     :todo_asset_id => todo_asset.todo_asset_id)) { tl(:add_entry) } 
+          } + 
           HTML.div(:id => "todo_asset_table_#{todo_asset.todo_asset_id}") { 
             table_widget()
           }
@@ -208,13 +215,13 @@ module Todo
 
       HTML.div { 
         Page.new(:header => tl(:my_todos)) { 
-          HTML.div(:id => :todo_asset_form) { 
-            GUI::Button.new(:onclick => link_to(:controller => 'Todo::Todo_Basic_Asset', :action => :add), 
-                            :icon => 'add', :class => 'submit' ) { tl(:add_todo_list) } + 
-            GUI::Button.new(:onclick => link_to(:controller => 'Todo::Todo_Calculation_Asset', :action => :add), 
-                            :icon => 'add', :class => 'submit' ) { tl(:add_calculation) } + 
-            GUI::Button.new(:onclick => link_to(:controller => 'Todo::Todo_Time_Calculation_Asset', :action => :add), 
-                            :icon => 'add', :class => 'submit' ) { tl(:add_time_calculation) } 
+          HTML.div.button_bar(:id => :todo_asset_form) { 
+            GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Basic_Asset', :action => :add), 
+                                 :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_todo_list) } + 
+            GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Calculation_Asset', :action => :add), 
+                                 :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_calculation) } + 
+            GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Time_Calculation_Asset', :action => :add), 
+                                 :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_time_calculation) } 
           } + 
           HTML.div.topic_inline { 
             own_entries.map { |e|
