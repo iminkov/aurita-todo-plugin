@@ -201,16 +201,16 @@ module Todo
     end
    
     def list
-      permission_constraints = (Content.content_id.in( 
-        Content_Category.select(:content_id) { |cid| 
-          cid.where(Content_Category.category_id.in(Aurita.user.category_ids) )
-        }
-      ))
-      own_entries     = Todo_Asset.all_with(permission_constraints & 
+#     permission_constraints = (Content.content_id.in( 
+#       Content_Category.select(:content_id) { |cid| 
+#         cid.where(Content_Category.category_id.in(Aurita.user.category_ids) )
+#       }
+#     ))
+      own_entries     = Todo_Asset.all_with(Todo_Asset.accessible & 
                                             (Todo_Asset.user_group_id == Aurita.user.user_group_id)).sort_by(Todo_Asset.created, :desc)
-      own_entries     = own_entries.polymorphic.entities
-      foreign_entries = Todo_Asset.all_with(permission_constraints & 
+      foreign_entries = Todo_Asset.all_with(Todo_Asset.accessible & 
                                             (Todo_Asset.user_group_id <=> Aurita.user.user_group_id)).sort_by(Todo_Asset.user_group_id, :asc)
+      own_entries     = own_entries.polymorphic.entities
       foreign_entries = foreign_entries.polymorphic.entities
 
       HTML.div { 

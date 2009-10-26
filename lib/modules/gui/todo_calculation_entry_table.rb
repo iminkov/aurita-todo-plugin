@@ -30,7 +30,7 @@ module GUI
       @cost_total_done = 0.0
       entries.each { |e|
         @cost_total      += e.cost.to_s.gsub(',','.').to_f
-        @cost_total_done += e.cost.to_s.gsub(',','.').to_f if e.done == 't'
+        @cost_total_done += e.cost.to_s.gsub(',','.').to_f if e.done 
       }
     end
 
@@ -60,7 +60,7 @@ module GUI
       done      = HTML.div { done_box + HTML.div(:class => [ :percent_done, :darker_bg ]) {  @entity.percent_done.to_s + '%' } }
       assignees = HTML.div(:class => [ :assignees, :darker_bg ]) { assigned_users }
       c[0]      = done
-      c[1]      += assignees
+      c[1]      += assignees if assigned_users.length > 0
       cost      = HTML.div.cost { @entity.cost }
       c + [ cost ]
     end

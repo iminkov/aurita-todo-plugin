@@ -1,6 +1,7 @@
 
 require('aurita/model')
 Aurita.import_plugin_model :todo, :todo_asset
+Aurita.import_plugin_model :todo, :todo_time_calculation_entry
 
 module Aurita
 module Plugins

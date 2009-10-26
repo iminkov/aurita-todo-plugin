@@ -65,6 +65,8 @@ end # module
 end # module
 end # module
 
+Aurita.import_plugin_model :todo, :todo_basic_asset
+Aurita.import_plugin_model :todo, :todo_container_asset
 Aurita.import_plugin_model :todo, :todo_calculation_asset
 Aurita.import_plugin_model :todo, :todo_calculation_entry
 Aurita.import_plugin_model :todo, :todo_time_calculation_asset

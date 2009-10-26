@@ -67,7 +67,7 @@ module Todo
 
     def perform_add
       instance = super()
-      @request.params['user_group_id[]'].each { |uid|
+      param(:user_group_ids, []).each { |uid|
         Todo_Entry_User.create(:user_group_id => uid, :todo_entry_id => instance.todo_entry_id)
       }
     end
@@ -78,8 +78,9 @@ module Todo
       Todo_Entry_User.delete { |tu|
         tu.where(Todo_Entry_User.todo_entry_id == instance.todo_entry_id)
       }
-      @request.params['user_group_id[]'].each { |uid|
-        Todo_Entry_User.create(:user_group_id => uid, :todo_entry_id => instance.todo_entry_id)
+      param(:user_group_ids, []).each { |uid|
+        Todo_Entry_User.create(:user_group_id => uid, 
+                               :todo_entry_id => instance.todo_entry_id)
       }
     end
 

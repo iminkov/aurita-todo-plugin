@@ -17,7 +17,7 @@ module Todo
           uid.where(Todo_Entry_User.todo_entry_id == todo_entry_id)
         }
         ))
-      }
+      }.to_a
     end
 
     def cost
@@ -37,7 +37,7 @@ module Todo
     end
 
     add_input_filter(:unit_cost) { |c|
-      c.strip! 
+      c = c.to_s.strip
       c.gsub!(',','.')
       c.to_f.to_s
     }

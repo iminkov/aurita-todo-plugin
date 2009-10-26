@@ -58,7 +58,7 @@ module GUI
       done       = HTML.div { done_box + HTML.div(:class => [ :percent_done, :darker_bg ]) {  @entity.percent_done.to_s + '%' } }
       assignees  = HTML.div(:class => [ :assignees, :darker_bg ]) { assigned_users }
       c[0]       = done
-      c[1]      += assignees
+      c[1]      += assignees if assigned_users.length > 0
       unit_cost  = HTML.div.unit_cost { @entity.unit_cost }
       total_cost = HTML.div.total_cost { @entity.total_cost }
       c + [ unit_cost, total_cost ]
