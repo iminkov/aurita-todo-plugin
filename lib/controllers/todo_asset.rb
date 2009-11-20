@@ -27,8 +27,12 @@ module Todo
       ]
     end
 
+    guard(:CUD) { 
+      Aurita.user.may?(:create_todo_lists)
+    }
+
     def toolbar_buttons
-      return unless Aurita.user.is_registered? 
+      return unless Aurita.user.may(:view_todo_lists)
 
       HTML.a(:class => :icon, 
              :onclick => link_to(:controller => 'Todo::Todo_Asset', :action => :list) ) { 
@@ -173,6 +177,7 @@ module Todo
     def table_widget
       todo_asset    = load_instance()
       return unless Aurita.user.may_view_content?(todo_asset)
+
       sort          = param(:sort, :priority)
       sort_dir      = param(:sort_dir, :asc)
 
@@ -201,11 +206,6 @@ module Todo
     end
    
     def list
-#     permission_constraints = (Content.content_id.in( 
-#       Content_Category.select(:content_id) { |cid| 
-#         cid.where(Content_Category.category_id.in(Aurita.user.category_ids) )
-#       }
-#     ))
       own_entries     = Todo_Asset.all_with(Todo_Asset.accessible & 
                                             (Todo_Asset.user_group_id == Aurita.user.user_group_id)).sort_by(Todo_Asset.created, :desc)
       foreign_entries = Todo_Asset.all_with(Todo_Asset.accessible & 
@@ -213,16 +213,21 @@ module Todo
       own_entries     = own_entries.polymorphic.entities
       foreign_entries = foreign_entries.polymorphic.entities
 
+      if Aurita.user.may(:create_todo_lists) then
+        buttons = GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Basic_Asset', :action => :add), 
+                                       :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_todo_list) } + 
+                  GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Calculation_Asset', :action => :add), 
+                                       :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_calculation) } + 
+                  GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Time_Calculation_Asset', :action => :add), 
+                                       :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_time_calculation) } 
+      else 
+        buttons = HTML.span {}
+      end
       HTML.div { 
         Page.new(:header => tl(:my_todos)) { 
           HTML.div.button_bar(:id => :todo_asset_form) { 
-            GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Basic_Asset', :action => :add), 
-                                 :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_todo_list) } + 
-            GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Calculation_Asset', :action => :add), 
-                                 :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_calculation) } + 
-            GUI::Text_Button.new(:onclick => link_to(:controller => 'Todo::Todo_Time_Calculation_Asset', :action => :add), 
-                                 :icon => 'button_add.gif', :class => 'submit' ) { tl(:add_time_calculation) } 
-          } + 
+            buttons
+          } +
           HTML.div.topic_inline { 
             own_entries.map { |e|
               entry = HTML.div.index_entry { 

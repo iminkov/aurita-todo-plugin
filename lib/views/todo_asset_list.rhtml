@@ -2,7 +2,7 @@
 <% todo_assets.each do |entry| %>
   <div class="index_entry"
     <%= gui.context_menu(:entity => entry, 
-                         :id => 'todo_asset_' << entry.todo_asset_id)
+                         :id => "todo_asset_#{entry.todo_asset_id}")
     %>
     >
     <div class="header">
