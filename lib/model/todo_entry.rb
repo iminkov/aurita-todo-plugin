@@ -23,7 +23,7 @@ module Todo
     end
 
     add_output_filter(:title) { |t|
-      t.gsub('"','&quot;')
+      t.to_s.gsub('"','&quot;')
     }
 
     def self.latest_for_user(params={})
