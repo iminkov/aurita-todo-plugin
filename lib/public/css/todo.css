@@ -1,0 +1,161 @@
+
+table.todo_entry_table { 
+  border: 1px solid #c0c0c0; 
+  border-left: 0px solid transparent; 
+  border-spacing: 0px; 
+  background-color: #eaeaea; 
+  width: 100%; 
+}
+table.todo_entry_table tr.deact { 
+  color: #454545; 
+  background-color: #e0e0e0; 
+}
+table.todo_entry_table tr.deact .darker_bg { 
+  background-color: #d6d6d6; 
+}
+table.todo_entry_table th { 
+  color: black; 
+  padding: 4px; 
+  padding-bottom: 1px; 
+  padding-left: 6px; 
+  border-bottom: 1px solid #343434; 
+  border-left: 1px solid #898989; 
+  background: transparent url(/aurita/images/button_bg.gif) repeat scroll 0 0; 
+  cursor: default; 
+}
+table.todo_entry_table th.hovered { 
+  background: transparent url(/aurita/images/button_hover_bg.gif) repeat scroll 0 0; 
+}
+table.todo_entry_table td { 
+  padding: 7px; 
+  padding-bottom: 0px; 
+  vertical-align: top; 
+  border-bottom: 1px solid #c9c9c9; 
+  border-left: 1px solid #dedede; 
+}
+
+table.todo_entry_table td.done, table.todo_entry_table td.priority, table.todo_entry_table td.user { 
+  text-align: center; 
+}
+table.todo_entry_table td.info div.assignees { 
+  border-top: 1px solid #cccccc; 
+  padding: 3px; 
+  padding-left: 9px; 
+  margin-left: -10px; 
+  padding-right: 7px; 
+  margin-right: -7px; 
+}
+table.todo_entry_table td.cost { 
+  text-align: right; 
+  width: 47px; 
+}
+table.todo_entry_table td.unit_cost { 
+  text-align: right; 
+  width: 47px; 
+}
+table.todo_entry_table td.total_cost { 
+  text-align: right; 
+  width: 47px; 
+}
+
+table.todo_entry_table td { 
+  background: #e2e2e2 url(/aurita/images/icons/tall_row_bg.png) repeat-x scroll 0 0px; 
+}
+table.todo_entry_table tr.highlighted td { 
+  background: #f9cf88 url(/aurita/images/icons/tall_row_highlighted_bg.png) repeat-x scroll 0 0px; 
+}
+table.todo_entry_table tr.deact td { 
+/*  background: #d4d3d4 url(/aurita/images/icons/tall_row_darker_bg.png) repeat-x scroll 0 0px; */
+  background: #c9c9c9 url(/aurita/images/icons/tall_row_darker_bg.png) repeat-x scroll 0 0px; 
+}
+table.todo_entry_table tr.deact.highlighted td { 
+  background: #ebc490 url(/aurita/images/icons/tall_row_darker_highlighted_bg.png) repeat-x scroll 0 0px; 
+}
+
+table.todo_entry_table td.done { 
+  width: 45px; 
+}
+table.todo_entry_table td.done .percent_done{ 
+  padding-top: 6px; 
+  height: 22px; 
+}
+table.todo_entry_table td.info { 
+  padding-left: 10px; 
+}
+table.todo_entry_table td.info .description { 
+  padding: 7px; 
+  padding-left: 9px; 
+  margin: 7px -7px -1px -10px; 
+  color: #676767; 
+  background: transparent; 
+}
+
+table.todo_entry_table td.priority { 
+  width: 45px; 
+}
+table.todo_entry_table td.date { 
+  width: 64px; 
+  padding-bottom: 7px; 
+}
+table.todo_entry_table td.deadline { 
+  width: 61px; 
+  padding-bottom: 7px; 
+}
+table.todo_entry_table td.duration { 
+  width: 65px; 
+  padding-bottom: 7px; 
+}
+table.todo_entry_table td.user { 
+  width: 75px; 
+}
+div.calculation_totals { 
+  border-left: 1px solid #cccccc; 
+  border-right: 1px solid #cccccc; 
+  border-bottom: 1px solid #cccccc; 
+  text-align: right; 
+  padding: 0px; 
+  height: 48px; 
+  background-color: #cfcfcf; 
+}
+div.calculation_totals .totals .value { 
+  font-weight: bold; 
+  padding: 3px; 
+  padding-right: 7px; 
+  margin-right: 0px; 
+  float: right; 
+  width: 70px; 
+}
+div.calculation_totals .totals_done .value { 
+  font-weight: bold; 
+  padding: 3px; 
+  padding-right: 7px; 
+  margin-right: 0px; 
+  float: right; 
+  width: 70px; 
+}
+div.calculation_totals .totals_done .label { 
+  float: right; 
+  padding: 3px; 
+}
+div.calculation_totals .totals .label { 
+  float: right; 
+  padding: 3px; 
+}
+div.calculation_totals .totals_done { 
+  clear: both; 
+}
+div.calculation_totals .totals { 
+  clear: both; 
+}
+
+table.todo_entry_table th.active { 
+  background: transparent url(/aurita/images/button_hover_bg.gif) repeat scroll 0 0; 
+}
+
+.todo_container_asset h2 { 
+  padding-bottom: 1px; 
+  margin-bottom: 0px; 
+}
+
+
+
