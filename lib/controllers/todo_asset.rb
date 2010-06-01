@@ -99,7 +99,7 @@ module Todo
     def perform_add
       @params[:user_group_id] = Aurita.user.user_group_id
       todo_asset = super()
-      Content_Category.create_for(todo_asset, param(:category_ids))
+      Content_Category.create_for(todo_asset, param(:category_id))
 
       if(param(:content_id_parent)) then
         text_asset = Wiki::Text_Asset.create(:text => '', 
@@ -122,7 +122,7 @@ module Todo
       instance   = load_instance()
       content_id = instance.content_id
       super()
-      Content_Category.update_for(instance, param(:category_ids))
+      Content_Category.update_for(instance, param(:category_id))
       after_change()
     end
 
